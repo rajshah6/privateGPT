@@ -1,42 +1,34 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #ecac04 #f5f5f5;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ecac04, #ffd04c);
+  border-radius: 3px;
 }
 
-.card {
-  padding: 2em;
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
 }
 
-.read-the-docs {
-  color: #888;
+/* Glass morphism effect */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
