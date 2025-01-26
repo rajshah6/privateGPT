@@ -4,30 +4,6 @@ function App() {
   const [messages, setMessages] = useState([])
   const [inputMessage, setInputMessage] = useState('')
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!inputMessage.trim()) return
-
-    const newMessage = {
-      content: inputMessage,
-      sender: 'user',
-      timestamp: new Date().toLocaleTimeString()
-    }
-
-    setMessages([...messages, newMessage])
-    setInputMessage('')
-    
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse = {
-        content: "Thanks for reaching out! I'm here to help you with your insurance and financial needs.",
-        sender: 'bot',
-        timestamp: new Date().toLocaleTimeString()
-      }
-      setMessages(prev => [...prev, botResponse])
-    }, 1000)
-  }
-
   const sendingMessage = async (message) => {
     try {
       const response = await fetch('test', {
