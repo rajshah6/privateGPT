@@ -39,8 +39,15 @@ function App() {
           message: message,
           timestamp: new Date().toISOString(),
         })
-      })
+      });
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error sending message:', error);
+      return null;
     }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sunlife-blue to-sunlife-blue-light p-4">
