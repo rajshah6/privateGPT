@@ -28,6 +28,20 @@ function App() {
     }, 1000)
   }
 
+  const sendMessage = async (message) => {
+    try {
+      const response = await fetch('test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: message,
+          timestamp: new Date().toISOString(),
+        })
+      })
+    }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-sunlife-blue to-sunlife-blue-light p-4">
       <div className="max-w-4xl mx-auto">
