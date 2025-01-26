@@ -28,7 +28,7 @@ function App() {
     }, 1000)
   }
 
-  const sendMessage = async (message) => {
+  const sendingMessage = async (message) => {
     try {
       const response = await fetch('test', {
         method: 'POST',
@@ -46,6 +46,32 @@ function App() {
     } catch (error) {
       console.error('Error sending message:', error);
       return null;
+    }
+  };
+
+  const handleSubmit = async (val) => {
+    val.preventDefault();
+    if (!inputMessage.trim()) return;
+
+    const userMsg = {
+      content: inputMessage,
+      sender: 'user',
+      timestamp: new Date().toISOString()
+    };
+
+    setMessages(prev => [...prev, userMsg]);
+    setInputMessage('');
+
+    const response = await sendingMessage(inputMessage);
+
+    if (response) {
+      const botMsg = {
+        content: response.reply,
+        sender: 'bot',
+        timestamp: new Date().toISOString()
+      };
+
+      setMessages(prev => [...prev, botMsg]);
     }
   };
 
