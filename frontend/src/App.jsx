@@ -18,6 +18,7 @@ function App() {
       });
 
       const data = await response.json();
+      console.log('Chatbot response:', data);
       return data;
     } catch (error) {
       console.error('Error sending message:', error);

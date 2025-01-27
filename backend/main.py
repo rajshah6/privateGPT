@@ -1,7 +1,10 @@
 from typing import Union
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime
+from pydantic import BaseModel
+from chatbot import SunlifeChatbot
+
 
 app = FastAPI()
 
@@ -14,13 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# class Message:
-#     def __init__(self, message: str):
-#         self.message = message
+bot = SunlifeChatbot()
+
+class Message(BaseModel):
+    message: str
 
 @app.post("/chat")
 async def chat(message: Message):
-    return {
-        "reply": f"Echo: {message.message}",
-        "timestamp": datetime.now().isoformat()
-    }
+    response = bot.extract_email(message.message)
+    return response
