@@ -2,7 +2,7 @@
 
 # ☀️ SolGuard 🤖
 
-</div>
+</div> 
 
 ## 🔍 Overview
 Solguard is an AI-powered assistant designed for [**Sun Life Insurance**](https://www.sunlife.ca/en/) to provide personalized insurance and investment recommendations. Unlike traditional cloud-based AI models, our chatbot leverages a locally downloaded **Llama GPT model** running entirely on the GPU. This ensures **maximum privacy** and **enhanced security**, as no personal data ever leaves the user's device.
