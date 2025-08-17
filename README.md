@@ -39,16 +39,6 @@ Download and run a local LlamaCpp server:
 ./server -m your-model.gguf -c 2048 --port 8000
 ```
 
-The server should accept POST requests at `/completion` with JSON payload:
-
-```json
-{
-  "prompt": "Your prompt here",
-  "max_tokens": 500,
-  "temperature": 0.7
-}
-```
-
 ### 4. Start the Rails Server
 
 ```bash
